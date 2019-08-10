@@ -41,7 +41,7 @@ class Model(object):
                     get = get.replace('%', '/100')
                 elif item == '²':
                     get = get.replace('²', '**2')
-                elif item in (',', ';', '^', '&'):
+                elif item in (',', ';', '^', '&', '|', '=', '!', '>', '<'):
                     get = 'Error'
             get = eval(get)
             self.entry.configure(stat='normal')
