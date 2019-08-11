@@ -61,7 +61,7 @@ class View(Model):
         self.buttonClearCh = Button(self.master, text='⤟', background='tan', font=self.font,
                 command=self.delEndChar)
         self.buttonSquare = Button(self.master, text='x²', background='tan', font=self.font,
-                command=lambda: self.press('²'))
+                command=self.square)
         self.buttonEqual = Button(self.master, text='=', background='tan', font=self.font, 
                 activeforeground='green', command=self.equal)
 

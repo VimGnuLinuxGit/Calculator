@@ -27,11 +27,19 @@ class Model(object):
         self.entry.delete('0', 'end')
         self.entry.insert('0', text)
     
+    def square(self):
+        get = self.equal()
+        if get == None:    # If entry as empty
+            return
+        self.entry.configure(stat='normal')
+        self.entry.delete('0', 'end')
+        self.entry.insert('0', get**2)
+    
     def equal(self):
         try:
             get = self.entry.get()
-            if get == '':   # If entry as empty
-                return
+            if len(get) == 0:    # If entry as empty
+                return 
             for item in get:
                 if item == '÷':
                     get = get.replace('÷', '/')
@@ -39,14 +47,15 @@ class Model(object):
                     get = get.replace('x', '*')
                 elif item == '%':
                     get = get.replace('%', '/100')
-                elif item == '²':
-                    get = get.replace('²', '**2')
+#                 elif item == '²':
+#                     get = get.replace('²', '**2')
                 elif item in (',', ';', '^', '&', '|', '=', '!', '>', '<'):
                     get = 'Error'
             get = eval(get)
             self.entry.configure(stat='normal')
             self.entry.delete('0', 'end')
             self.entry.insert('0', get)
+            return get
         except:
             self.entry.delete('0', 'end')
             self.entry.configure(foreground='red')
