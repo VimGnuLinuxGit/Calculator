@@ -60,8 +60,8 @@ class View(Model):
                 command=self.clearEntry)
         self.buttonClearCh = Button(self.master, text='⤟', background='tan', font=self.font,
                 command=self.delEndChar)
-        self.buttonSquare = Button(self.master, text='x²', background='tan', font=self.font,
-                command=self.square)
+        self.buttonPower = Button(self.master, text='x²', background='tan', font=self.font,
+                command=self.power)
         self.buttonEqual = Button(self.master, text='=', background='tan', font=self.font, 
                 activeforeground='green', command=self.equal)
 
@@ -82,7 +82,7 @@ class View(Model):
         self.button2.grid(row=3, column=1, padx=5, sticky='EW')
         self.button3.grid(row=3, column=2, padx=5, sticky='EW')
         self.buttonMinus.grid(row=3, column=3, padx=5, sticky='EW')
-        self.buttonSquare.grid(row=3, column=4, padx=5, sticky='EW')
+        self.buttonPower.grid(row=3, column=4, padx=5, sticky='EW')
         self.button0.grid(row=4, column=0, padx=5, pady=3, sticky='EW')
         self.buttonPoint.grid(row=4, column=1, padx=5, sticky='EW')
         self.buttonPercent.grid(row=4, column=2, padx=5, sticky='EW')

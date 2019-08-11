@@ -27,18 +27,18 @@ class Model(object):
         self.entry.delete('0', 'end')
         self.entry.insert('0', text)
     
-    def square(self):
-        get = self.equal()
-        if get == None:    # If entry as empty
+    def power(self):
+        resultEqual = self.equal()
+        if resultEqual == None:    # Function equal output None if entry as empty
             return
         self.entry.configure(stat='normal')
         self.entry.delete('0', 'end')
-        self.entry.insert('0', get**2)
+        self.entry.insert('0', pow(resultEqual, 2))
     
     def equal(self):
+        get = self.entry.get()
         try:
-            get = self.entry.get()
-            if len(get) == 0:    # If entry as empty
+            if len(get) == 0:    # If entry as empty do no operations 
                 return 
             for item in get:
                 if item == '÷':
@@ -47,8 +47,6 @@ class Model(object):
                     get = get.replace('x', '*')
                 elif item == '%':
                     get = get.replace('%', '/100')
-#                 elif item == '²':
-#                     get = get.replace('²', '**2')
                 elif item in (',', ';', '^', '&', '|', '=', '!', '>', '<'):
                     get = 'Error'
             get = eval(get)
