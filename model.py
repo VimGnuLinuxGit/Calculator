@@ -12,9 +12,8 @@ class Model(object):
 
     # Functions ----------------------------------------------------------------------------------------#
     def press(self, char):
-        if self.entry.get() != '':
-            if self.entry.get()[:] == 'Error': 
-                return
+        if self.entry.get()[:] == 'Error':    # Do nothing
+            return
         self.entry.configure(stat='normal')
         self.entry.configure(foreground='green')
         self.entry.insert('end', char)
@@ -25,9 +24,8 @@ class Model(object):
         self.entry.delete('0', 'end')
 
     def delEndChar(self):       
-        if self.entry.get() != '':
-            if self.entry.get()[:] == 'Error': 
-                return
+        if self.entry.get()[:] == 'Error':    # Do nothing
+            return
         self.entry.configure(stat='normal')
         text = self.entry.get()[:-1]
         self.entry.delete('0', 'end')
