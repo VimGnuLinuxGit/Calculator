@@ -33,37 +33,38 @@ class Model(object):
     
     def power(self):
         resultEqual = self.equal()
-        if resultEqual == None:    # Function equal output None if entry as empty
+        if resultEqual == None:    # Do nothing
             return
         self.entry.configure(stat='normal')
         self.entry.delete('0', 'end')
         self.entry.insert('0', pow(resultEqual, 2))
     
     def equal(self):
-        get = self.entry.get()
+        getEntry = self.entry.get()
         try:
-            if len(get) == 0:    # If entry as empty do no operations 
+            if len(getEntry) == 0:    # If entry as empty: do nothing 
                 return 
-            for item in get:
-                if item == '÷':
-                    get = get.replace('÷', '/')
+            for item in getEntry:
+                if item in (',', ';', '^', '&', '|', '=', '!', '>', '<'):
+                    getEntry = 'Error input character'    # If characters input the are these: eval Error
+                    break
+                elif item == '÷':
+                    getEntry = getEntry.replace('÷', '/')
                 elif item == 'x':
-                    get = get.replace('x', '*')
+                    getEntry = getEntry.replace('x', '*')
                 elif item == '%':
-                    get = get.replace('%', '/100')
-                elif item in (',', ';', '^', '&', '|', '=', '!', '>', '<'):
-                    get = 'Error'
-            get = eval(get)
+                    getEntry = getEntry.replace('%', '/100')
+            resultEqual = eval(getEntry)
             self.entry.configure(stat='normal')
             self.entry.delete('0', 'end')
-            self.entry.insert('0', get)
-            return get
+            self.entry.insert('0', resultEqual)
+            return resultEqual
         except:
             self.entry.delete('0', 'end')
             self.entry.configure(foreground='red')
             self.entry.insert('0', 'Error')
             self.entry.configure(stat='readonly')
-
+            return
 
 
 if __name__ == "__main__":
