@@ -6,7 +6,7 @@
 # Software version 1.0   
 #=========================
 
-from tkinter import *
+from tkinter import (Tk, Button, Entry)
 from model import Model
 
 
