@@ -3,16 +3,16 @@
 ### Software version 1.0
 
 The language used is Python
-### Just run the file view.py to run the program
+### Just run the file __main__.py to run the program
 
 As follows:
 
-python3 view.py
+python3 __main__.py
 
 or
 
-python3.6 view.py
+python3.6 __main__.py
 
 or
 
-python3.7 view.py
+python3.7 __main__.py
