@@ -54,7 +54,7 @@ class Model(object):
         try:
             resultTryExcept = eval(getEntry)
             return resultTryExcept
-        except (SyntaxError, NameError):    # If empty value is Error: NameError
+        except (SyntaxError, NameError):    # If entry value is Error: NameError
             self.entry.delete('0', 'end')
             self.entry.configure(foreground='red')
             self.entry.insert('0', 'Error')
